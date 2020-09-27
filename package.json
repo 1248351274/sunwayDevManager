@@ -1,0 +1,26 @@
+{
+  "name": "sunway-dev-manager",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "src/background.js",
+  "scripts": {
+    "dev": "electron .",
+    "dist": "electron-builder --win --x64",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^8.0.0"
+  }
+}

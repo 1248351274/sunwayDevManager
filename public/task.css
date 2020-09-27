@@ -1,0 +1,215 @@
+svg {
+    vertical-align: middle;
+}
+
+.task {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 100px;
+}
+
+.navigation {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    /* border-top: 1px solid #dddddd; */
+    width: 200px;
+    height: 100vh;
+    /* margin: 30px 0 0 40px; */
+    box-sizing: border-box;
+
+}
+
+.navigation .taskName {
+    font-size:18px;
+    margin: 20px 0 20px 20px;
+}
+
+.navigation ul {
+    /* text-align: center; */
+    list-style: none;
+    padding: 0;
+
+}
+
+.navigation ul li {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.navigation ul li:hover {
+    background: #f7f4f4;
+    /* color: rgb(252, 190, 166); */
+}
+
+.navigation ul li svg {
+    vertical-align: middle;
+    height: 46px;
+    line-height: 46px;
+    padding-right: 10px;
+}
+
+.navigation ul li span {
+
+    color: rgb(66, 71, 71);
+    /* font-size: 18px; */
+    width: 100%;
+    height: 46px;
+    line-height: 46px;
+    /* border:1px solid rgb(129, 83, 230); */
+    margin-top: 10px;
+
+}
+
+.navigation ul .active {
+    background-color: rgb(253, 247, 227);
+
+}
+.taskLightContent {
+    position: fixed;
+    top: 0;
+    left: 200px;
+    width: calc(100% - 200px);
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-left: 1px solid #dddddd;
+}
+.taskContent {
+    /* box-sizing: border-box;
+    display: flex;
+    flex-direction: column; */
+    position: fixed;
+    top: 36px;
+    left: 200px;
+    
+    display: none;
+}
+
+.taskTitle {
+    position: fixed;
+    top: 0;
+    left: 200px;
+    width: 100%;
+    height: 20px;
+    padding: 10px 0 10px 15px;
+    border-bottom: 1px solid #dddddd
+}
+.projectTitle {
+    padding: 10px 0 10px 15px;
+    border-bottom: 1px solid #dddd
+}
+.mainContent {
+    position: fixed;
+    top: 40px;
+    left: 200px;
+    
+    height: 100%;
+    padding: 10px;
+    overflow: auto;
+}
+
+.taskListDemo {
+    /* width: 1100px; */
+    width:auto;
+    /* height: 100vh; */
+    overflow: auto;
+}
+.taskListDemo1 {
+    margin: 10px;
+    width: 800px;
+}
+
+.beginState {
+    background: rgb(197, 247, 240);
+    text-align: left;
+    border: none;
+}
+
+.taskNumber {
+    background: rgb(250, 235, 220);
+    border: none;
+}
+/* .assignTaskCon{
+    background-color: #666666;
+    height: 100px;
+} */
+.assign {
+    background-color: #eeeeee;
+    /* margin-left: 10px; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    
+}
+
+.addAssign button{
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: 0;
+    /* font-size: 18px; */
+    color: #666666;
+}
+.addAssign button:hover {
+    color: #0a0a0a;
+}
+
+.projectAssign {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 10px;
+}
+.addAssignBtn {
+    margin-left: 10px;
+}
+
+.addAssignBtn span {
+    color: #666666;
+}
+.addAssignBtn span:hover {
+    color: #0a0a0a;
+}
+.addForm {
+    background-color: #f7f4f4;
+}
+.taskLabel {
+    /* overflow: hidden; */
+    overflow-y: auto;
+    overflow-x: hidden;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.taskLabelDetail {
+    margin: 0 auto;
+    width: 260px;
+    height: 100px;
+    box-shadow: 0.5px 0.5px 5px #d1cfcf;
+    padding: 10px 0 10px 10px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+.projectList {
+    display: flex;
+}
+.taskListMain {
+    display: flex;
+}
+.taskTree {
+    width: 240px;
+}
+.taskListTable {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+

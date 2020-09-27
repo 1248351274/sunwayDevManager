@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./task.css" media="all">
+
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <script src="jquery-3.5.1/jquery-3.5.1.js" charset="utf-8"></script>
+
+    <script src="layui-v2.5.6/layui/layui.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="layui-v2.5.6/layui/css/layui.css" media="all">
+
+</head>
+
+<body>
+    <div class="task">
+        <div class="navigation">
+            <div class="taskName">部门工作管理平台</div>
+            <ul>
+                <li class="active myTask" name="myTask">
+                    <svg t="1600058376312" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="6388" width="16" height="16">
+                        <path
+                            d="M989.175421 447.100233c-18.899203 0-31.956254 19.058825-31.956254 31.956253l-0.095773 472.767394c0 6.576412-6.289093 6.576412-6.289093 6.576412h-345.102c-18.899203 0-72.627849 3.543601-63.912507-63.912508 4.756725-36.904525 51.015078-31.956254 63.912507-31.956253l262.226441-0.446941c12.546261 0 25.060599-12.769732 25.060599-25.571388v-427.786013c0-12.769732-12.514337-25.571388-25.060599-25.571388l-258.2359 0.063849c-57.974582 0-132.422118 19.218446-132.422118 77.735742v18.388413h-66.083362c-116.491878 0-211.275212-89.898911-211.275212-206.550411s94.783334-211.530606 211.275212-211.530606a211.658304 211.658304 0 0 1 133.316 47.407629 212.201017 212.201017 0 0 1 73.07479 118.662732 30.647356 30.647356 0 1 0 59.95389-13.120899 273.687276 273.687276 0 0 0-94.272545-153.204857A273.048789 273.048789 0 0 0 411.185438-0.22347c-72.819395 0-141.297082 28.412653-192.791025 79.93852C166.90047 131.304767 138.519741 199.846302 138.519741 272.793394s28.348804 141.488628 79.874672 193.04642a274.932324 274.932324 0 0 0 54.558679 42.363585 409.078356 409.078356 0 0 0-152.470597 96.698794A411.025741 411.025741 0 0 0 0.670487 872.619619c-0.415016 7.757612-0.638487 111.447834-0.638487 119.269294a30.711205 30.711205 0 1 0 61.358561 0c0-8.779191 0.319243-113.395218 0.95773-122.046711a347.879417 347.879417 0 0 1 101.487443-221.459073c66.051437-66.14721 153.907192-107.58499 247.31778-107.58499h66.083361v375.813206c0 51.621641 51.430095 105.861076 91.271658 105.861076H958.400367c37.926103 0 63.210172-54.27136 63.210173-86.514933V478.833016c0-19.346144-19.53769-31.732783-32.435119-31.732783z m-446.302125 51.078927c0-38.692287 24.198642-51.047003 62.859005-51.047003h223.693776v351.518791h-191.737522c-45.300623 0-95.868761-7.566066-95.868761 31.956253l1.053502-332.428041z"
+                            p-id="6389" fill="#fb8059"></path>
+                    </svg>
+                    <span>我的任务</span>
+                </li>
+                <li class="assignTask" name="assignTask">
+                    <svg t="1600059080828" class="icon" viewBox="0 0 1077 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="11004" width="16" height="16">
+                        <path
+                            d="M431.157895 94.315789a13.473684 13.473684 0 0 0-13.473684 13.473685v161.68421c0 7.437474 6.036211 13.473684 13.473684 13.473684h161.68421a13.473684 13.473684 0 0 0 13.473684-13.473684V107.789474a13.473684 13.473684 0 0 0-13.473684-13.473685H431.157895z m0-80.842105h161.68421c52.062316 0 94.315789 42.253474 94.31579 94.31579v161.68421A94.315789 94.315789 0 0 1 592.842105 363.789474H431.157895A94.315789 94.315789 0 0 1 336.842105 269.473684V107.789474c0-52.062316 42.253474-94.315789 94.31579-94.31579zM107.789474 741.052632a13.473684 13.473684 0 0 0-13.473685 13.473684v161.68421c0 7.437474 6.036211 13.473684 13.473685 13.473685h161.68421a13.473684 13.473684 0 0 0 13.473684-13.473685v-161.68421a13.473684 13.473684 0 0 0-13.473684-13.473684H107.789474z m0-80.842106h161.68421c52.062316 0 94.315789 42.253474 94.31579 94.31579v161.68421A94.315789 94.315789 0 0 1 269.473684 1010.526316H107.789474A94.315789 94.315789 0 0 1 13.473684 916.210526v-161.68421c0-52.062316 42.253474-94.315789 94.31579-94.31579zM781.473684 741.052632a13.473684 13.473684 0 0 0-13.473684 13.473684v161.68421c0 7.437474 6.036211 13.473684 13.473684 13.473685h161.684211a13.473684 13.473684 0 0 0 13.473684-13.473685v-161.68421a13.473684 13.473684 0 0 0-13.473684-13.473684h-161.684211z m0-80.842106h161.684211c52.062316 0 94.315789 42.253474 94.315789 94.31579v161.68421a94.315789 94.315789 0 0 1-94.315789 94.31579h-161.684211A94.315789 94.315789 0 0 1 687.157895 916.210526v-161.68421c0-52.062316 42.253474-94.315789 94.315789-94.31579zM471.578947 363.789474h80.842106v188.631579h-80.842106z"
+                            fill="#EE9445" p-id="11005"></path>
+                        <path
+                            d="M229.052632 579.368421V700.631579h-80.842106v-129.347368c0-42.199579 37.402947-72.757895 79.925895-72.757895h594.674526c42.576842 0 79.925895 30.558316 79.925895 72.757895V700.631579h-80.842105v-121.263158h-592.842105z"
+                            fill="#EE9445" p-id="11006"></path>
+                    </svg>
+                    <span>分配任务</span>
+                </li>
+                <li class="taskList" name="taskList">
+                    <svg t="1600050155103" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2750" data-spm-anchor-id="a313x.7781069.0.i1"
+                        width="16" height="16">
+                        <path
+                            d="M875.89 2.207H147.843C67.41 2.207 2.207 67.411 2.207 147.843V875.89c0 80.432 65.204 145.635 145.636 145.635H875.89c80.432 0 145.635-65.203 145.635-145.635V147.843c0-80.432-65.203-145.636-145.635-145.636z m72.886 873.882a72.63 72.63 0 0 1-72.787 72.688H148.01c-19.47 0-37.854-7.48-51.623-21.25S74.957 895.56 74.957 876.09V147.91a73.086 73.086 0 0 1 73.054-72.954H875.99a72.861 72.861 0 0 1 72.787 72.954V876.09z"
+                            fill="#ff8400" p-id="2751"></path>
+                        <path
+                            d="M830.576 329.787h-291.27a36.375 36.375 0 0 0 0 72.75h291.272a36.375 36.375 0 0 0 0-72.75z m0 291.409h-291.27a36.375 36.375 0 0 0 0 72.75h291.272a36.375 36.375 0 0 0 0-72.75z m-509.72-90.994c-70.379 0-127.416 57.053-127.416 127.414s57.053 127.417 127.416 127.417S448.27 727.98 448.27 657.617s-57.037-127.414-127.414-127.414z m38.664 166.095a54.665 54.665 0 1 1 16.029-38.664 54.324 54.324 0 0 1-16.03 38.669z m44.842-428.47L284.443 387.74l-47.093-47.098a36.375 36.375 0 1 0-51.443 51.442l72.815 72.82a36.375 36.375 0 0 0 51.443 0l145.636-145.636a36.375 36.375 0 0 0-51.44-51.442z"
+                            fill="#ff8400" p-id="2752" data-spm-anchor-id="a313x.7781069.0.i0" class="selected"></path>
+                    </svg>
+                    <span>任务列表</span>
+                </li>
+                <li class="taskTotal" name="taskTotal">
+                    <svg t="1600058810199" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="9220" width="16" height="16">
+                        <path
+                            d="M512 550.4c-19.2 0-38.4-19.2-38.4-38.4V44.8c0-19.2 19.2-38.4 38.4-38.4 281.6 0 505.6 224 505.6 505.6 0 19.2-19.2 38.4-38.4 38.4H512z m38.4-76.8h384v-6.4c-12.8-96-57.6-185.6-121.6-256-70.4-70.4-160-108.8-256-121.6h-6.4v384z"
+                            p-id="9221" fill="#EE9445"></path>
+                        <path
+                            d="M512 1017.6c-70.4 0-134.4-12.8-198.4-38.4C57.6 870.4-64 569.6 44.8 313.6 96 192 192 102.4 307.2 51.2c6.4 0 12.8-6.4 19.2-6.4 19.2 0 32 6.4 38.4 25.6 6.4 19.2 0 44.8-19.2 51.2-217.6 96-320 345.6-224 563.2 70.4 153.6 217.6 256 390.4 256 57.6 0 115.2-12.8 172.8-38.4 102.4-44.8 179.2-121.6 224-224 6.4-12.8 19.2-25.6 38.4-25.6H960c12.8 6.4 19.2 12.8 19.2 19.2 6.4 12.8 6.4 19.2 0 32C896 896 716.8 1017.6 512 1017.6z"
+                            p-id="9222" fill="#EE9445"></path>
+                    </svg>
+                    <span>统计</span>
+                </li>
+            </ul>
+        </div>
+        <div class="taskLightContent">
+            <div class="taskDetailCon taskContent" id="myTask" style="display: block;">
+                <div class="taskTitle">
+                    我的任务
+                </div>
+                <div class="taskListDemo mainContent">
+                    <table class="layui-hide" id="demo" lay-filter="demo"></table>
+                    <script type="text/html" id="selectStates">
+                        <a class="layui-btn layui-btn-primary beginState" lay-event="detail">
+                            <svg t="1600070953475" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="11851" width="16" height="16">
+                                <path
+                                    d="M673.93 895.3c49.54-20.95 94.03-50.95 132.23-89.15 38.2-38.2 68.19-82.69 89.15-132.23C917 622.63 928 568.15 928 512s-11-110.63-32.7-161.93c-20.95-49.54-50.95-94.03-89.15-132.23-38.2-38.2-82.69-68.19-132.23-89.15C622.63 107 568.15 96 512 96s-110.63 11-161.93 32.7c-49.54 20.95-94.03 50.95-132.23 89.15-38.2 38.2-68.19 82.69-89.15 132.23C107 401.37 96 455.85 96 512s11 110.63 32.7 161.93c20.95 49.54 50.95 94.03 89.15 132.23 38.2 38.2 82.69 68.19 132.23 89.15C401.37 917 455.85 928 512 928s110.63-11 161.93-32.7zM128 512c0-211.74 172.26-384 384-384s384 172.26 384 384-172.26 384-384 384-384-172.26-384-384z"
+                                    fill="#12BA9C" p-id="11852"></path>
+                                <path
+                                    d="M719.5 529.32c13.33-7.7 13.33-26.94 0-34.64l-315-181.87c-13.33-7.7-30 1.92-30 17.32v363.73c0 15.4 16.67 25.02 30 17.32l315-181.86z"
+                                    fill="#12BA9C" p-id="11853"></path>
+                            </svg>
+
+
+                            <span>{{d.state}}</span>
+                        </a>
+                    </script>
+                    <script type="text/html" id="taskNumbers">
+                        <a class="layui-btn layui-btn-primary taskNumber" lay-event="detail">
+                            <svg t="1600071652708" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="12711" width="24" height="24">
+                                <path
+                                    d="M 827.699 587.162 h 51.8144 v 53.5552 h -51.8144 v -53.5552 Z m -168.346 57.5488 c 38.8096 0 73.3184 -12.288 94.9248 -36.9664 c 25.9072 -24.6784 34.5088 -57.6512 34.5088 -102.912 s -12.9024 -78.2336 -34.5088 -102.912 c -25.9072 -24.6784 -56.0128 -36.9664 -99.2256 -36.9664 c -21.504 0 -43.1104 4.096 -60.416 12.3904 c -12.9024 4.096 -25.9072 12.3904 -34.5088 24.6784 c -12.9024 12.3904 -17.2032 24.6784 -25.9072 36.9664 c -8.6016 20.5824 -12.9024 41.1648 -12.9024 69.9392 c 0 45.2608 12.9024 78.2336 34.5088 102.912 c 30.3104 20.5824 60.416 32.8704 103.526 32.8704 Z m -17.2032 -226.304 c 69.0176 0 90.624 24.6784 90.624 82.3296 c 0 61.7472 -21.504 86.4256 -90.624 86.4256 c -43.1104 0 -60.416 -24.6784 -60.416 -86.4256 c 0.1024 -49.3568 34.5088 -82.3296 60.416 -82.3296 Z m -323.379 57.6512 L 435.2 644.71 h 60.3136 V 360.653 H 435.2 V 529.408 L 318.771 360.653 h -60.416 v 284.058 h 60.416 V 476.058 Z"
+                                    fill="#fcbc03" p-id="12712"></path>
+                                <path
+                                    d="M 964.301 202.24 H 59.6992 C 32.4608 202.24 5.12 220.979 5.12 243.507 v 533.197 c 0 26.3168 19.456 45.056 46.7968 45.056 h 920.166 c 27.3408 0 46.7968 -18.7392 46.7968 -45.056 V 243.507 c 0 -22.528 -27.3408 -41.2672 -54.5792 -41.2672 Z m 0 566.989 H 59.6992 V 254.771 h 908.595 v 514.355 h -3.9936 v 0.1024 Z"
+                                    fill="#fcbc03" p-id="12713"></path>
+                            </svg>
+
+
+                            <span>{{d.id}}</span>
+                        </a>
+                    </script>
+
+
+                </div>
+            </div>
+            <div class="assignTaskCon taskContent" id="assignTask">
+                <div class="taskTitle">
+                    状态展示
+                </div>
+                <div class="assign mainContent">
+                    <div class="addAssign">
+                        <button onclick="addProject()">
+                            <svg t="1600139826339" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5957" width="20" height="20">
+                                <path
+                                    d="M900.7 432.2H548.4V109.3c0-20.2-16.5-36.7-36.7-36.7-20.2 0-36.7 16.5-36.7 36.7v322.9H122.8c-20.2 0-36.7 16.5-36.7 36.7 0 20.2 16.5 36.7 36.7 36.7h352.3v381.6c0 20.2 16.5 36.7 36.7 36.7 20.2 0 36.7-16.5 36.7-36.7V505.6h352.3c20.2 0 36.7-16.5 36.7-36.7-0.1-20.2-16.6-36.7-36.8-36.7z"
+                                    fill="#666666" p-id="5958"></path>
+                            </svg>
+                            <span>新增项目</span>
+                        </button>
+                    </div>
+                    <div class="projectList">
+
+                        <!-- <div class="projectAssign">
+                            <div class="taskTitle" style="border: 0;">
+                                项目名称
+                            </div>
+                            <div class="layui-input-inline" style="margin: 0 20px 20px;">
+                                <input type="text" name="title" required lay-verify="required" placeholder="请输入项目名称"
+                                    autocomplete="off" class="layui-input">
+                            </div>
+                            <div class="taskLabel">
+                                <div class="taskLabelDetail">
+                                    <div>任务管理需求分析1</div>
+                                    <div>状态：进行中</div>
+                                    <div>2020.9.14 09:00:00 - 2020.9.16 17:30:00</div>
+                                </div>
+                            </div>
+                            <div class="addAssignBtn" onclick="openAddAssign()">
+                                <svg t="1600139253760" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="5768" width="32" height="32">
+                                    <path
+                                        d="M510.45511156 887.39022219c-206.76444469 0-374.38044469-167.64977812-374.38044468-374.44088906S303.69066688 138.52088844 510.45511156 138.52088844c206.7662222 0 374.38222219 167.63733375 374.38222219 374.42844468S717.22133375 887.39022219 510.45511156 887.39022219zM510.45511156 185.32266687c-180.92088844 0-327.58222219 146.68266657-327.58222219 327.62666625S329.53422219 840.57777781 510.45511156 840.57777781s327.58222219-146.68444406 327.58222218-327.62844469S691.376 185.32266687 510.45511156 185.32266687zM650.84799969 536.35555532L533.85600031 536.35555532l0 117.00977812c0 12.91733344-10.47644437 23.39733375-23.39911126 23.39733376-12.92266688 0-23.39733375-10.48000031-23.39733374-23.39733376l0-117.00977812-116.99555531-1e-8c-12.92266688 0-23.39911125-10.47822188-23.39911125-23.40622219 0-12.91911094 10.47822188-23.39733375 23.39911125-23.39733374l116.99555531 0 0-117.01511157c0-12.91733344 10.47644437-23.39200031 23.39733374-23.39200031 12.92444438 0 23.39911125 10.47288845 23.39911126 23.39200031l0 117.01511157 116.99200031 0c12.92444438 0 23.39911125 10.47822188 23.39911126 23.39733374C674.24711095 525.87733344 663.77244406 536.35555532 650.84799969 536.35555532z"
+                                        p-id="5769" fill="#EE9445"></path>
+                                </svg>
+                                <span>添加并分配任务</span>
+                            </div>
+                        </div> -->
+                    </div>
+
+                </div>
+            </div>
+            <div class="taskListCon taskContent" id="taskList">
+                <div class="taskTitle">
+                    分配任务
+                </div>
+                <table class="layui-hide" id="tableId" lay-filter="tableEvent"></table>
+                <!-- <div class="taskListMain mainContent">
+                    <div id="test12" class="demo-tree-more taskTree"></div>
+                    <div id="taskListTable" class="taskListTable">
+                        <div class="taskListDemo1">
+
+                            <div class="">
+                                项目名称： 部门任务管理平台
+                            </div>
+                            <table class="layui-hide" id="allTaskList" lay-filter="allTaskList"></table>
+                            <script type="text/html" id="selectStates">
+                                <a class="layui-btn layui-btn-primary beginState" lay-event="detail">
+                                    <svg t="1600070953475" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" p-id="11851" width="16" height="16">
+                                        <path
+                                            d="M673.93 895.3c49.54-20.95 94.03-50.95 132.23-89.15 38.2-38.2 68.19-82.69 89.15-132.23C917 622.63 928 568.15 928 512s-11-110.63-32.7-161.93c-20.95-49.54-50.95-94.03-89.15-132.23-38.2-38.2-82.69-68.19-132.23-89.15C622.63 107 568.15 96 512 96s-110.63 11-161.93 32.7c-49.54 20.95-94.03 50.95-132.23 89.15-38.2 38.2-68.19 82.69-89.15 132.23C107 401.37 96 455.85 96 512s11 110.63 32.7 161.93c20.95 49.54 50.95 94.03 89.15 132.23 38.2 38.2 82.69 68.19 132.23 89.15C401.37 917 455.85 928 512 928s110.63-11 161.93-32.7zM128 512c0-211.74 172.26-384 384-384s384 172.26 384 384-172.26 384-384 384-384-172.26-384-384z"
+                                            fill="#12BA9C" p-id="11852"></path>
+                                        <path
+                                            d="M719.5 529.32c13.33-7.7 13.33-26.94 0-34.64l-315-181.87c-13.33-7.7-30 1.92-30 17.32v363.73c0 15.4 16.67 25.02 30 17.32l315-181.86z"
+                                            fill="#12BA9C" p-id="11853"></path>
+                                    </svg>
+
+
+                                    <span>{{d.state}}</span>
+                                </a>
+                            </script>
+                            <script type="text/html" id="taskNumbers">
+                                <a class="layui-btn layui-btn-primary taskNumber" lay-event="detail">
+                                    <svg t="1600071652708" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" p-id="12711" width="24" height="24">
+                                        <path
+                                            d="M 827.699 587.162 h 51.8144 v 53.5552 h -51.8144 v -53.5552 Z m -168.346 57.5488 c 38.8096 0 73.3184 -12.288 94.9248 -36.9664 c 25.9072 -24.6784 34.5088 -57.6512 34.5088 -102.912 s -12.9024 -78.2336 -34.5088 -102.912 c -25.9072 -24.6784 -56.0128 -36.9664 -99.2256 -36.9664 c -21.504 0 -43.1104 4.096 -60.416 12.3904 c -12.9024 4.096 -25.9072 12.3904 -34.5088 24.6784 c -12.9024 12.3904 -17.2032 24.6784 -25.9072 36.9664 c -8.6016 20.5824 -12.9024 41.1648 -12.9024 69.9392 c 0 45.2608 12.9024 78.2336 34.5088 102.912 c 30.3104 20.5824 60.416 32.8704 103.526 32.8704 Z m -17.2032 -226.304 c 69.0176 0 90.624 24.6784 90.624 82.3296 c 0 61.7472 -21.504 86.4256 -90.624 86.4256 c -43.1104 0 -60.416 -24.6784 -60.416 -86.4256 c 0.1024 -49.3568 34.5088 -82.3296 60.416 -82.3296 Z m -323.379 57.6512 L 435.2 644.71 h 60.3136 V 360.653 H 435.2 V 529.408 L 318.771 360.653 h -60.416 v 284.058 h 60.416 V 476.058 Z"
+                                            fill="#fcbc03" p-id="12712"></path>
+                                        <path
+                                            d="M 964.301 202.24 H 59.6992 C 32.4608 202.24 5.12 220.979 5.12 243.507 v 533.197 c 0 26.3168 19.456 45.056 46.7968 45.056 h 920.166 c 27.3408 0 46.7968 -18.7392 46.7968 -45.056 V 243.507 c 0 -22.528 -27.3408 -41.2672 -54.5792 -41.2672 Z m 0 566.989 H 59.6992 V 254.771 h 908.595 v 514.355 h -3.9936 v 0.1024 Z"
+                                            fill="#fcbc03" p-id="12713"></path>
+                                    </svg>
+
+
+                                    <span>{{d.id}}</span>
+                                </a>
+                            </script>
+                            <script>
+                                // 样例数据
+                                let alldata = [{
+                                        "id": "10001",
+                                        "taskId": "1",
+                                        "projectName": "部门任务管理平台",
+                                        "state": "正在进行中",
+                                        "title": "任务管理需求分析1",
+                                        "username": "XXX",
+                                        "beginTime": "2020-9-14",
+                                        "overTime": "2020-9-15",
+                                    },
+                                    {
+                                        "id": "10002",
+                                        "taskId": "2",
+                                        "projectName": "部门任务管理平台",
+                                        "state": "正在进行中",
+                                        "title": "任务管理需求分析2",
+                                        "username": "XXX",
+                                        "beginTime": "2020-9-15",
+                                        "overTime": "2020-9-16",
+                                    },
+                                    {
+                                        "id": "10003",
+                                        "taskId": "3",
+                                        "projectName": "部门任务管理平台",
+                                        "state": "正在进行中",
+                                        "title": "任务管理需求分析3",
+                                        "username": "XXX",
+                                        "beginTime": "2020-9-17",
+                                        "overTime": "2020-9-18",
+                                    },
+                                    {
+                                        "id": "10004",
+                                        "taskId": "1",
+                                        "projectName": "部门任务管理平台",
+                                        "state": "正在进行中",
+                                        "title": "功能：我的任务",
+                                        "username": "XXX",
+                                        "beginTime": "2020-9-18",
+                                        "overTime": "2020-9-19",
+                                    }
+                                ]
+                                layui.use('table', function () {
+                                    var table = layui.table,
+                                        form = layui.form;
+
+                                    table.render({
+                                        elem: '#allTaskList',
+                                        cellMinWidth: 120,
+                                        title: '用户数据表',
+                                        // height: 'full-20',
+                                        cols: [
+                                            [ //标题栏
+                                                {
+                                                    field: 'id',
+                                                    title: '编号',
+                                                }, {
+                                                    field: 'taskId',
+                                                    title: '任务编号',
+                                                    templet: '#taskNumbers',
+                                                },
+                                                {
+                                                    field: 'title',
+                                                    title: '标题',
+                                                    align: 'center'
+                                                },
+
+                                                {
+                                                    field: 'state',
+                                                    title: '状态1',
+                                                    templet: '#selectStates',
+                                                },
+                                                {
+                                                    field: 'projectName',
+                                                    title: '项目',
+                                                },
+                                                {
+                                                    field: 'username',
+                                                    title: '负责人',
+                                                    align: 'center'
+                                                },
+                                                {
+                                                    field: 'beginTime',
+                                                    title: '开始时间',
+                                                    align: 'center'
+                                                },
+                                                {
+                                                    field: 'overTime',
+                                                    title: '结束时间',
+                                                    align: 'center'
+                                                },
+                                            ]
+                                        ],
+                                        data: alldata
+                                    });
+                                    table.on('tool(allTaskList)', function (obj) {
+                                        var data = obj.data;
+                                        if (obj.event === 'detail') {
+                                            let offset = [obj.tr[0].offsetHeight, obj.tr[0].offsetWidth]
+                                            console.log(offset);
+                                        } else if (obj.event === 'del') {
+                                            layer.confirm('真的删除行么', function (index) {
+                                                obj.del();
+                                                layer.close(index);
+                                            });
+                                        } else if (obj.event === 'edit') {
+                                            layer.alert('编辑行：<br>' + JSON.stringify(data))
+                                        }
+                                    });
+                                });
+                            </script>
+
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="taskTotalCon taskContent" id="taskTotal">
+                <div class="taskTitle">
+                    统计
+                </div>
+                <div class="mainContent">
+                    <div id="taskECharts_t0" class="taskECharts" style="width: 800px; height: 600px"></div>
+                    <div id="taskECharts_t1" class="taskECharts" style="width: 800px; height: 300px"></div>
+                    <div id="taskECharts_t2" class="taskECharts" style="width: 800px; height: 300px"></div>
+                    <div id="taskECharts_t3" class="taskECharts" style="width: 800px; height: 300px"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+<div id="selectStates1" style="display: none;">
+    <a class="layui-btn layui-btn-primary beginState"  lay-event="detail">
+        <svg t="1600070953475" class="icon" viewBox="0 0 1024 1024" version="1.1"
+            xmlns="http://www.w3.org/2000/svg" p-id="11851" width="16" height="16">
+            <path
+                d="M673.93 895.3c49.54-20.95 94.03-50.95 132.23-89.15 38.2-38.2 68.19-82.69 89.15-132.23C917 622.63 928 568.15 928 512s-11-110.63-32.7-161.93c-20.95-49.54-50.95-94.03-89.15-132.23-38.2-38.2-82.69-68.19-132.23-89.15C622.63 107 568.15 96 512 96s-110.63 11-161.93 32.7c-49.54 20.95-94.03 50.95-132.23 89.15-38.2 38.2-68.19 82.69-89.15 132.23C107 401.37 96 455.85 96 512s11 110.63 32.7 161.93c20.95 49.54 50.95 94.03 89.15 132.23 38.2 38.2 82.69 68.19 132.23 89.15C401.37 917 455.85 928 512 928s110.63-11 161.93-32.7zM128 512c0-211.74 172.26-384 384-384s384 172.26 384 384-172.26 384-384 384-384-172.26-384-384z"
+                fill="#12BA9C" p-id="11852"></path>
+            <path
+                d="M719.5 529.32c13.33-7.7 13.33-26.94 0-34.64l-315-181.87c-13.33-7.7-30 1.92-30 17.32v363.73c0 15.4 16.67 25.02 30 17.32l315-181.86z"
+                fill="#12BA9C" p-id="11853"></path>
+        </svg>
+        <span>{{d.state}}</span>
+    </a>
+</div>
+<div id="tong" style="display: none;margin-top:20px ;">
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">任务名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="title" lay-verify="title" width="10%" autocomplete="off" placeholder="请输入任务名称"
+                    class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-inline">
+                <select name="interest" lay-filter="aihao">
+                    <option value=""></option>
+                    <option value="0">未进行</option>
+                    <option value="1" selected="">进行中</option>
+                    <option value="2">已完成</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">负责人</label>
+            <div class="layui-input-inline">
+                <select name="interest" lay-filter="aihao">
+                    <option value=""></option>
+                    <option value="0">A</option>
+                    <option value="1" selected="">B</option>
+                    <option value="2">C</option>
+                    <option value="3">D</option>
+                    <option value="4">E</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">开始时间</label>
+            <div class="layui-input-inline">
+                <input type="text" name="beginDate" id="beginDate" lay-verify="datetime" placeholder="yyyy-MM-dd"
+                    autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">结束时间</label>
+            <div class="layui-input-inline">
+                <input type="text" name="overDate" id="overDate" lay-verify="datetime" placeholder="yyyy-MM-dd"
+                    autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="addAssignBtn" onclick="addChildAssign()">
+            <svg t="1600139253760" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                p-id="5768" width="32" height="32">
+                <path
+                    d="M510.45511156 887.39022219c-206.76444469 0-374.38044469-167.64977812-374.38044468-374.44088906S303.69066688 138.52088844 510.45511156 138.52088844c206.7662222 0 374.38222219 167.63733375 374.38222219 374.42844468S717.22133375 887.39022219 510.45511156 887.39022219zM510.45511156 185.32266687c-180.92088844 0-327.58222219 146.68266657-327.58222219 327.62666625S329.53422219 840.57777781 510.45511156 840.57777781s327.58222219-146.68444406 327.58222218-327.62844469S691.376 185.32266687 510.45511156 185.32266687zM650.84799969 536.35555532L533.85600031 536.35555532l0 117.00977812c0 12.91733344-10.47644437 23.39733375-23.39911126 23.39733376-12.92266688 0-23.39733375-10.48000031-23.39733374-23.39733376l0-117.00977812-116.99555531-1e-8c-12.92266688 0-23.39911125-10.47822188-23.39911125-23.40622219 0-12.91911094 10.47822188-23.39733375 23.39911125-23.39733374l116.99555531 0 0-117.01511157c0-12.91733344 10.47644437-23.39200031 23.39733374-23.39200031 12.92444438 0 23.39911125 10.47288845 23.39911126 23.39200031l0 117.01511157 116.99200031 0c12.92444438 0 23.39911125 10.47822188 23.39911126 23.39733374C674.24711095 525.87733344 663.77244406 536.35555532 650.84799969 536.35555532z"
+                    p-id="5769" fill="#EE9445"></path>
+            </svg>
+            <span>添加子任务</span>
+        </div>
+        <div class="layui-form-item" style="padding-top:60px;">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="tong1" style="display: none;margin-top:20px ;">
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">任务名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="title" lay-verify="title" width="10%" autocomplete="off" placeholder="请输入任务名称"
+                    class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-inline">
+                <select name="interest" lay-filter="aihao">
+                    <option value=""></option>
+                    <option value="0">未进行</option>
+                    <option value="1" selected="">进行中</option>
+                    <option value="2">已完成</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">负责人</label>
+            <div class="layui-input-inline">
+                <select name="interest" lay-filter="aihao">
+                    <option value=""></option>
+                    <option value="0">A</option>
+                    <option value="1" selected="">B</option>
+                    <option value="2">C</option>
+                    <option value="3">D</option>
+                    <option value="4">E</option>
+                </select>
+            </div>
+        </div>
+
+
+
+        <div class="layui-inline">
+            <label class="layui-form-label">开始时间</label>
+            <div class="layui-input-inline">
+                <input type="text" name="beginDate" id="beginDate" lay-verify="datetime" placeholder="yyyy-MM-dd"
+                    autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">结束时间</label>
+            <div class="layui-input-inline">
+                <input type="text" name="overDate" id="overDate" lay-verify="datetime" placeholder="yyyy-MM-dd"
+                    autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+        <div class="addAssignBtn" onclick="addChildAssign()">
+            <svg t="1600139253760" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                p-id="5768" width="32" height="32">
+                <path
+                    d="M510.45511156 887.39022219c-206.76444469 0-374.38044469-167.64977812-374.38044468-374.44088906S303.69066688 138.52088844 510.45511156 138.52088844c206.7662222 0 374.38222219 167.63733375 374.38222219 374.42844468S717.22133375 887.39022219 510.45511156 887.39022219zM510.45511156 185.32266687c-180.92088844 0-327.58222219 146.68266657-327.58222219 327.62666625S329.53422219 840.57777781 510.45511156 840.57777781s327.58222219-146.68444406 327.58222218-327.62844469S691.376 185.32266687 510.45511156 185.32266687zM650.84799969 536.35555532L533.85600031 536.35555532l0 117.00977812c0 12.91733344-10.47644437 23.39733375-23.39911126 23.39733376-12.92266688 0-23.39733375-10.48000031-23.39733374-23.39733376l0-117.00977812-116.99555531-1e-8c-12.92266688 0-23.39911125-10.47822188-23.39911125-23.40622219 0-12.91911094 10.47822188-23.39733375 23.39911125-23.39733374l116.99555531 0 0-117.01511157c0-12.91733344 10.47644437-23.39200031 23.39733374-23.39200031 12.92444438 0 23.39911125 10.47288845 23.39911126 23.39200031l0 117.01511157 116.99200031 0c12.92444438 0 23.39911125 10.47822188 23.39911126 23.39733374C674.24711095 525.87733344 663.77244406 536.35555532 650.84799969 536.35555532z"
+                    p-id="5769" fill="#EE9445"></path>
+            </svg>
+            <span>添加子任务</span>
+        </div>
+
+        <div class="layui-form-item" style="padding-top:60px;">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="addProTitlePage" style="display: none;">
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">输入框</label>
+            <div class="layui-input-inline">
+                <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off"
+                    class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    render()
+
+    function render() {
+        let width = window.innerWidth
+        // document.querySelector('.taskListDemo').height = (window.innerHeight - 40)+'px'
+        // document.querySelector('.taskListDemo').width = (window.innerWidth - 210)+'px'
+        console.log(width - 270);
+        let taskLightContentElement = document.querySelector('.taskLightContent')
+        
+        taskLightContentElement.width = (window.innerWidth - 200) + 'px';
+        taskLightContentElement.style.height = window.innerHeight;
+        // document.querySelector('.projectAssign').style.height = (window.innerHeight - 120) + 'px';
+        let taskLiElements = document.querySelectorAll('li');
+        let taskContentElements = document.querySelectorAll('.taskContent');
+        taskLiElements.forEach((element) => {
+            element.onclick = function () {
+                taskLiElements.forEach((e) => {
+                    if (e.attributes["class"].value = "active") {
+                        e.classList.remove("active");
+                    }
+                })
+                taskContentElements.forEach(e => {
+                    if (e.style.display == "block") {
+                        e.style.display = "none"
+                    }
+                })
+                nameValue = element.attributes["name"].value
+                // let [nameValue] = document.getElementsByName(element.attributes["name"].value)
+                element.classList.add("active");
+                document.getElementById(nameValue).style.display = 'block'
+            }
+        })
+        openTree()
+    }
+
+    function openTree() {
+        layui.use(['tree', 'util'], function () {
+            var tree = layui.tree,
+                layer = layui.layer,
+                util = layui.util
+                //模拟数据1
+                ,
+                data = [{
+                    title: '部门任务管理平台',
+                    id: 1,
+                    spread: true,
+                    children: [{
+                        title: '任务管理需求分析1',
+                        id: 1000,
+                    }, {
+                        title: '任务管理需求分析2',
+                        id: 1001
+                    }, {
+                        title: '任务管理需求分析3',
+                        id: 1002
+                    }, {
+                        title: '我的任务',
+                        id: 1001
+                    }, ]
+                }]
+
+            //基本演示
+            tree.render({
+                elem: '#test12',
+                data: data,
+                // showCheckbox: true, //是否显示复选框
+                onlyIconControl: true,
+                id: 'demoId1',
+                isJump: true, //是否允许点击节点时弹出新窗口跳转
+                click: function (obj) {
+                    var data = obj.data; //获取当前点击的节点数据
+                    layer.msg("右侧显示数据");
+                    // layer.msg('状态：' + obj.state + '<br>节点数据：' + JSON.stringify(data));
+                }
+            });
+        });
+    }
+
+    function openAddAssign(title) {
+        if (!title) {
+            title = "新建任务"
+        }
+        let index = layer.open({
+            type: 1,
+            title: title,
+            // closeBtn: 0,
+            area: ['50%', '60%'],
+            // skin: '', //没有背景色
+            shadeClose: true,
+            content: $('#tong'),
+            cancel: function (index, layero) {
+                // if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
+                layer.close(index)
+                // }
+                return false;
+            }
+        });
+
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form,
+                layer = layui.layer,
+                layedit = layui.layedit,
+                laydate = layui.laydate;
+
+            //日期
+            laydate.render({
+                elem: '#beginDate',
+                type: 'datetime'
+            });
+            laydate.render({
+                elem: '#overDate',
+                type: 'datetime'
+            });
+
+            //创建一个编辑器
+            var editIndex = layedit.build('LAY_demo_editor');
+
+            //自定义验证规则
+            form.verify({
+                title: function (value) {
+                    if (value.length < 2) {
+                        return '标题至少得2个字符啊';
+                    }
+                },
+                pass: [
+                    /^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'
+                ],
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+
+            //监听指定开关
+            form.on('switch(switchTest)', function (data) {
+                layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+                    offset: '6px'
+                });
+                layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+            });
+
+            //监听提交
+            form.on('submit(demo1)', function (data) {
+                let taskLabelDetail = `
+                <div class="taskLabelDetail" onclick="taskDetailPage(event)">
+                    <div>任务：${data.field.title}</div>
+                    <div>状态：${data.field.interest}</div>
+                    <div>开始时间：${data.field.beginDate}</div>
+                    <div>结束时间：${data.field.overDate}</div>
+                </div>
+                `
+                console.log(data);
+                $('.taskLabel').append(taskLabelDetail)
+                layer.close(index)
+                // layer.alert(JSON.stringify(data.field), {
+                //     title: '最终的提交信息'
+                // })
+                return false;
+            });
+
+            //表单赋值
+            layui.$('#LAY-component-form-setval').on('click', function () {
+                form.val('example', {
+                    "username": "贤心" // "name": "value"
+                        ,
+                    "password": "123456",
+                    "interest": 1,
+                    "like[write]": true //复选框选中状态
+                        ,
+                    "close": true //开关状态
+                        ,
+                    "sex": "女",
+                    "desc": "我爱 layui"
+                });
+            });
+
+            //表单取值
+            layui.$('#LAY-component-form-getval').on('click', function () {
+                var data = form.val('example');
+                alert(JSON.stringify(data));
+            });
+
+        });
+    }
+
+    function openAddAssign1(title) {
+        if (!title) {
+            title = "新建任务"
+        }
+        let index = layer.open({
+            type: 1,
+            title: title,
+            // closeBtn: 0,
+            area: ['50%', '60%'],
+            // skin: '', //没有背景色
+            shadeClose: true,
+            content: $('#tong1'),
+            cancel: function (index, layero) {
+                // if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
+                layer.close(index)
+                // }
+                return false;
+            }
+        });
+
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form,
+                layer = layui.layer,
+                layedit = layui.layedit,
+                laydate = layui.laydate;
+
+            //日期
+            laydate.render({
+                elem: '#beginDate',
+                type: 'datetime'
+            });
+            laydate.render({
+                elem: '#overDate',
+                type: 'datetime'
+            });
+
+            //   laydate.render({
+            //     elem: '#beginDate'
+            //     ,type: 'datetime'
+            //     ,range: true
+            //   });
+
+            //创建一个编辑器
+            var editIndex = layedit.build('LAY_demo_editor');
+
+            //自定义验证规则
+            form.verify({
+                title: function (value) {
+                    if (value.length < 2) {
+                        return '标题至少得2个字符啊';
+                    }
+                },
+                pass: [
+                    /^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'
+                ],
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+
+            //监听指定开关
+            form.on('switch(switchTest)', function (data) {
+                layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+                    offset: '6px'
+                });
+                layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+            });
+
+            //监听提交
+            form.on('submit(demo1)', function (data) {
+                let taskLabelDetail = `
+                <div class="taskLabelDetail" onclick="taskDetailPage(event)">
+                    <div>任务：${data.field.title}</div>
+                    <div>状态：${data.field.interest}</div>
+                    <div>开始时间：${data.field.beginDate}</div>
+                    <div>结束时间：${data.field.overDate}</div>
+                </div>
+                `
+                console.log(data);
+                $('.taskLabel').append(taskLabelDetail)
+                layer.close(index)
+                // layer.alert(JSON.stringify(data.field), {
+                //     title: '最终的提交信息'
+                // })
+                return false;
+            });
+
+            //表单赋值
+            layui.$('#LAY-component-form-setval').on('click', function () {
+                form.val('example', {
+                    "username": "贤心" // "name": "value"
+                        ,
+                    "password": "123456",
+                    "interest": 1,
+                    "like[write]": true //复选框选中状态
+                        ,
+                    "close": true //开关状态
+                        ,
+                    "sex": "女",
+                    "desc": "我爱 layui"
+                });
+            });
+
+            //表单取值
+            layui.$('#LAY-component-form-getval').on('click', function () {
+                var data = form.val('example');
+                alert(JSON.stringify(data));
+            });
+
+        });
+    }
+
+    function addProject() {
+
+        layui.use('form', function () {
+            var form = layui.form;
+            var layer = layui.layer;
+            let addProjectTitle = layer.open({
+                title: "新增项目",
+                type: 1,
+                content: $('#addProTitlePage')
+            });
+            //监听提交
+            form.on('submit(formDemo)', function (data) {
+                layer.close(addProjectTitle)
+                let title = "添加任务";
+                let addProjectContent = `
+                    <div class="projectAssign">
+                        <div class="projectTitle" style="border: 0;">
+                            项目名称
+                        </div>
+                        <div class="layui-input-inline" style="margin: 0 20px 20px;">
+                            ${data.field.title}
+                        </div>
+                        <div class="taskLabel">
+                        </div>
+                        <div class="addAssignBtn" onclick="openAddAssign()">
+                            <svg t="1600139253760" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5768" width="32" height="32">
+                                <path
+                                    d="M510.45511156 887.39022219c-206.76444469 0-374.38044469-167.64977812-374.38044468-374.44088906S303.69066688 138.52088844 510.45511156 138.52088844c206.7662222 0 374.38222219 167.63733375 374.38222219 374.42844468S717.22133375 887.39022219 510.45511156 887.39022219zM510.45511156 185.32266687c-180.92088844 0-327.58222219 146.68266657-327.58222219 327.62666625S329.53422219 840.57777781 510.45511156 840.57777781s327.58222219-146.68444406 327.58222218-327.62844469S691.376 185.32266687 510.45511156 185.32266687zM650.84799969 536.35555532L533.85600031 536.35555532l0 117.00977812c0 12.91733344-10.47644437 23.39733375-23.39911126 23.39733376-12.92266688 0-23.39733375-10.48000031-23.39733374-23.39733376l0-117.00977812-116.99555531-1e-8c-12.92266688 0-23.39911125-10.47822188-23.39911125-23.40622219 0-12.91911094 10.47822188-23.39733375 23.39911125-23.39733374l116.99555531 0 0-117.01511157c0-12.91733344 10.47644437-23.39200031 23.39733374-23.39200031 12.92444438 0 23.39911125 10.47288845 23.39911126 23.39200031l0 117.01511157 116.99200031 0c12.92444438 0 23.39911125 10.47822188 23.39911126 23.39733374C674.24711095 525.87733344 663.77244406 536.35555532 650.84799969 536.35555532z"
+                                    p-id="5769" fill="#EE9445"></path>
+                            </svg>
+                            <span>添加并分配任务</span>
+                        </div>
+                    </div>
+        `
+
+                $('.projectList').append(addProjectContent)
+                document.querySelectorAll('.projectAssign').forEach(e => {
+                    e.style.height = (window.innerHeight - 120) + 'px'
+                });
+                return false;
+            });
+        });
+    }
+
+    function taskDetailPage(event) {
+        let data = []
+        // event.path[1].children.forEach(element=>{
+        //     data.push(element.innerHTML.splic('：')[1])
+        // })
+        let children = event.path[1].children
+        for (let i = 0; i < children.length; i++) {
+            data.push(children[i].innerText.split('：')[1])
+        }
+        console.log('data', data);
+        let title = "查看任务详情"
+        openAddAssign(title)
+    }
+
+    function addChildAssign() {
+        let title = "添加子任务"
+        openAddAssign1(title)
+    }
+</script>
+
+<script src="echarts.min.js" charset="utf-8"></script>
+<script src="echartsData.js" charset="utf-8"></script>
+<script src="./js/tableData.js" charset="utf-8"></script>
+<script src="./js/tableTree.js" charset="utf-8"></script>
+
+<style>
+
+</style>
+
+</html>
